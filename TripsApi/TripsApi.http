@@ -1,6 +1,6 @@
 @TripsApi_HostAddress = http://localhost:5098
 
-GET {{TripsApi_HostAddress}}/weatherforecast/
+GET {{TripsApi_HostAddress}}/TripItems/
 Accept: application/json
 
 ###

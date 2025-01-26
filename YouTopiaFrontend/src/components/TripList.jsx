@@ -5,8 +5,8 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
         id: '',
         name: '',
         location: '',
-        start_date: '',
-        end_date: ''
+        start_Date: '',
+        end_Date: ''
     });
     const [editingId, setEditingId] = useState(null);
 
@@ -24,7 +24,7 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
         } else {
             onCreate(formData)
         }
-        setFormData({ id: '', name: '', location: '', start_date: '', end_date: ''})
+        setFormData({ id: '', name: '', location: '', start_Date: '', end_Date: ''})
     }
 
     const handleEdit = (trip) => {
@@ -33,8 +33,8 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
             id: trip.id,
             name: trip.name,
             location: trip.location,
-            start_date: trip.start_date,
-            end_date: trip.end_date,
+            start_Date: trip.start_Date,
+            end_Date: trip.end_Date,
         });
     }
 
@@ -44,8 +44,8 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
             id: '',
             name: '',
             location: '',
-            start_date: '',
-            end_date: ''
+            start_Date: '',
+            end_Date: ''
         })
     }
 
@@ -72,17 +72,17 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
                 />
                 <input
                     type="date"
-                    name="start_date"
+                    name="start_Date"
                     placeholder="Start Date"
-                    value={formData.start_date}
+                    value={formData.start_Date}
                     onChange={handleFormChange}
                     className='startDateInput'
                 />
                 <input
                     type="date"
-                    name="end_date"
+                    name="end_Date"
                     placeholder="End Date"
-                    value={formData.end_date}
+                    value={formData.end_Date}
                     onChange={handleFormChange}
                     className='endDateInput'
                 />
@@ -95,10 +95,10 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
                 {trips.map(trip => (
                     <li key={trip.id}>
                         <div className='tripListItemDiv'>
-                            {trip.name}
-                            {trip.location}
-                            {trip.start_date}
-                            {trip.end_date}
+                            {trip.name}<br/>
+                            {trip.location}<br/>
+                            {trip.start_Date}<br/>
+                            {trip.end_Date}<br/>
                         </div>
                         <div className='editDeleteTripButtonContainer'><button onClick={() => handleEdit(trip)}>Edit</button>
                         <button onClick={() => onDelete(trip.id)}>Delete</button>
