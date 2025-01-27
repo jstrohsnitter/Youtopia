@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import TripCard from './TripCard';
 
 function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
     const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
                     value={formData.name}
                     onChange={handleFormChange}
                     className='nameInput'
-                />
+                /><br/>
                     <input
                     type="text"
                     name="location"
@@ -69,7 +70,7 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
                     value={formData.location}
                     onChange={handleFormChange}
                     className='locationInput'
-                />
+                /><br/>
                 <input
                     type="date"
                     name="start_Date"
@@ -77,7 +78,7 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
                     value={formData.start_Date}
                     onChange={handleFormChange}
                     className='startDateInput'
-                />
+                /><br/>
                 <input
                     type="date"
                     name="end_Date"
@@ -85,13 +86,13 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
                     value={formData.end_Date}
                     onChange={handleFormChange}
                     className='endDateInput'
-                />
+                /><br/>
                 <button type='submit' className='submitButton'>{editingId ? 'Update' : 'Create'}</button>
                 {editingId && <button type='button' onClick={handleCancelEdit}>Cancel</button>}
             </form>
             {error && <div>{error.message}</div>}
             <h2 className='tripListHeader'>Trips</h2>
-            <ul className='tripList'>
+            {/* <ul className='tripList'>
                 {trips.map(trip => (
                     <li key={trip.id}>
                         <div className='tripListItemDiv'>
@@ -105,7 +106,8 @@ function TripList ({ trips, onCreate, onUpdate, onDelete, error }){
                         </div>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
+            <TripCard onDelete={onDelete} handleEdit={handleEdit} trips={trips}/>
         </div>
         </>
     )

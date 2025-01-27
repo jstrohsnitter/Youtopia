@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3002,  // Client port
     proxy: {
       '/api/TripItems': {
-        target: 'http://localhost:5098', // Mock server port
+        target: 'http://localhost:5282', // Mock server port
         changeOrigin: true,
         secure: false,
         ws: true,
